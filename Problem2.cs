@@ -7,14 +7,19 @@ class Hello {
         Stopwatch stopWatch = new Stopwatch();
         stopWatch.Start();
         
-        int result = 0;
-        for(short i = 3;i<1000;i++)
+        uint termValue = 0;
+        uint result = 0;
+        uint firstTerm = 1;
+        uint secondTerm = 1;
+        
+        while(termValue < 4000001)
         {
-            if (IsMultiple(3, i) || IsMultiple(5, i))
-            {
-                result += i;
-            }
-                
+            uint tempSum = firstTerm + secondTerm;
+            if(tempSum % 2 == 0)
+                result += tempSum;
+            firstTerm = secondTerm;
+            secondTerm = tempSum;
+            termValue = tempSum;
         }
         
         stopWatch.Stop();
@@ -23,11 +28,4 @@ class Hello {
         Console.WriteLine(result.ToString());
         Console.WriteLine(ts.ToString());
     }
-    
-    public static bool IsMultiple(short fixedM, short v)
-    {
-        return v % fixedM == 0?true:false;
-    }
-    
-    
 }

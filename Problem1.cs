@@ -26,7 +26,7 @@ class Hello {
     
     public static bool IsMultiple(short fixedM, short v)
     {
-        return v % fixedM == 0?true:false;
+        return v % fixedM == 0?true:false; 
     }
     
     
